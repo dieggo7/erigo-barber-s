@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbearia Estilo - Agendamento</title>
+    <style>
+        /* Estilo Básico e Limpo */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background-color: #222;
+            color: #fff;
+            width: 100%;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .container {
+            background-color: white;
+            width: 90%;
+            max-width: 500px;
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        h2 { color: #333; }
+
+        button {
+            background-color: #222;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #444;
+        }
+
+        input, select {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        /* Classes para esconder/mostrar telas */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Barbearia do Mestre</h1>
+    </header>
+
+    <div id="tela-home" class="container">
+        <h2>Bem-vindo!</h2>
+        <p>O melhor corte da região está te esperando.</p>
+        <p>Clique abaixo para garantir seu horário.</p>
+        <button onclick="mostrarAgendamento()">Agendar Horário</button>
+    </div>
+
+    <div id="tela-agendamento" class="container hidden">
+        <h2>Agendar Corte</h2>
+        <p>Escolha o melhor momento para você:</p>
+        
+        <form onsubmit="finalizarAgendamento(event)">
+            <label for="data">Data:</label><br>
+            <input type="date" id="data" required>
+            
+            <label for="hora">Horário:</label><br>
+            <input type="time" id="hora" required>
+
+            <label for="servico">Serviço:</label><br>
+            <select id="servico">
+                <option value="cabelo">Corte de Cabelo</option>
+                <option value="barba">Barba</option>
+                <option value="completo">Cabelo + Barba</option>
+            </select>
+
+            <button type="submit">Confirmar Agendamento</button>
+        </form>
+        
+        <br>
+        <button onclick="voltarHome()" style="background-color: #888;">Voltar</button>
+    </div>
+
+    <div id="tela-sucesso" class="container hidden">
+        <h2 style="color: green;">Agendado com Sucesso!</h2>
+        <p>Seu horário está reservado.</p>
+        <p>Te esperamos para cortar o cabelo!</p>
+        <button onclick="voltarHome()">Voltar ao Início</button>
+    </div>
+
+    <script>
+        // Funções simples para trocar as telas (simulando a navegação)
+        
+        function mostrarAgendamento() {
+            document.getElementById('tela-home').classList.add('hidden');
+            document.getElementById('tela-agendamento').classList.remove('hidden');
+        }
+
+        function voltarHome() {
+            document.getElementById('tela-agendamento').classList.add('hidden');
+            document.getElementById('tela-sucesso').classList.add('hidden');
+            document.getElementById('tela-home').classList.remove('hidden');
+        }
+
+        function finalizarAgendamento(event) {
+            event.preventDefault(); // Evita recarregar a página
+            
+            // Aqui simulamos a verificação "Tem horário disponível?" do fluxograma
+            // Vamos fingir que sempre tem horário e ir para o sucesso
+            
+            const data = document.getElementById('data').value;
+            const hora = document.getElementById('hora').value;
+
+            if(data && hora) {
+                document.getElementById('tela-agendamento').classList.add('hidden');
+                document.getElementById('tela-sucesso').classList.remove('hidden');
+            } else {
+                alert("Por favor, preencha a data e a hora.");
+            }
+        }
+    </script>
+
+</body>
+</html>
