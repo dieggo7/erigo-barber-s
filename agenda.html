@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barbearia Estilo - Agendamento</title>
+    <title>Erigo-Barber's - Agendamento</title>
     <style>
-        /* Estilo Básico e Limpo */
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -31,11 +32,13 @@
             margin-top: 30px;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
 
-        h2 { color: #333; }
+        h2 {
+            color: #333;
+        }
 
         button {
             background-color: #222;
@@ -52,7 +55,8 @@
             background-color: #444;
         }
 
-        input, select {
+        input,
+        select {
             width: 90%;
             padding: 10px;
             margin: 10px 0;
@@ -66,10 +70,11 @@
         }
     </style>
 </head>
+
 <body>
 
     <header>
-        <h1>Barbearia do Mestre</h1>
+        <h1>Agenda Barbearia</h1>
     </header>
 
     <div id="tela-home" class="container">
@@ -82,11 +87,11 @@
     <div id="tela-agendamento" class="container hidden">
         <h2>Agendar Corte</h2>
         <p>Escolha o melhor momento para você:</p>
-        
+
         <form onsubmit="finalizarAgendamento(event)">
             <label for="data">Data:</label><br>
             <input type="date" id="data" required>
-            
+
             <label for="hora">Horário:</label><br>
             <input type="time" id="hora" required>
 
@@ -99,7 +104,7 @@
 
             <button type="submit">Confirmar Agendamento</button>
         </form>
-        
+
         <br>
         <button onclick="voltarHome()" style="background-color: #888;">Voltar</button>
     </div>
@@ -112,8 +117,7 @@
     </div>
 
     <script>
-        // Funções simples para trocar as telas (simulando a navegação)
-        
+
         function mostrarAgendamento() {
             document.getElementById('tela-home').classList.add('hidden');
             document.getElementById('tela-agendamento').classList.remove('hidden');
@@ -126,15 +130,12 @@
         }
 
         function finalizarAgendamento(event) {
-            event.preventDefault(); // Evita recarregar a página
-            
-            // Aqui simulamos a verificação "Tem horário disponível?" do fluxograma
-            // Vamos fingir que sempre tem horário e ir para o sucesso
-            
+            event.preventDefault();
+
             const data = document.getElementById('data').value;
             const hora = document.getElementById('hora').value;
 
-            if(data && hora) {
+            if (data && hora) {
                 document.getElementById('tela-agendamento').classList.add('hidden');
                 document.getElementById('tela-sucesso').classList.remove('hidden');
             } else {
@@ -144,4 +145,5 @@
     </script>
 
 </body>
+
 </html>
