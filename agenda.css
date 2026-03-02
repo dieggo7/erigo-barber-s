@@ -1,63 +1,179 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500;600&display=swap');
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
     margin: 0;
-    padding: 0;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+}
+
+.box-agenda {
+    background-color: #1e1e1e;
+    padding: 30px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    border-top: 4px solid #d4af37;
+}
+
+/* Cabeçalho */
+.header-agenda {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.logo h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.logo h1 span {
+    color: #d4af37;
+}
+
+.btn-voltar {
+    color: #888;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.btn-voltar:hover {
+    color: #d4af37;
+}
+
+/* Boas vindas */
+.boas-vindas h2 {
+    font-size: 1.4rem;
+    margin: 0 0 5px 0;
+    color: #d4af37;
+}
+
+.boas-vindas p {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin: 0 0 25px 0;
+}
+
+/* Seções Gerais */
+.secao {
+    margin-bottom: 25px;
+}
+
+.secao h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: #eee;
+}
+
+/* Serviços */
+input[type="checkbox"] {
+    display: none;
+}
+
+.grid-servicos {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 10px;
 }
 
-header {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: #fff;
-    width: 100%;
-    padding: 20px 0;
-    text-align: center;
-}
-
-.container {
-    background-color: white;
-    width: 90%;
-    max-width: 500px;
-    margin-top: 30px;
-    padding: 20px;
+.card-servico {
+    display: flex;
+    justify-content: space-between;
+    background-color: #2a2a2a;
+    padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-h2 {
-    color: #333;
-}
-
-button {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    border: none;
-    padding: 10px 20px;
+    border: 1px solid #333;
     cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.card-servico .nome {
+    font-weight: 500;
+}
+
+.card-servico .preco {
+    color: #d4af37;
+    font-weight: 600;
+}
+
+input[type="checkbox"]:checked + .card-servico {
+    background-color: #333;
+    border-color: #d4af37;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+/* Estilo do Calendário e Relógio */
+.calendario-container {
+    display: flex;
+    gap: 15px;
+}
+
+.input-box {
+    width: 100%;
+}
+
+.input-box label {
+    display: block;
+    font-size: 0.85rem;
+    color: #bbb;
+    margin-bottom: 8px;
+}
+
+.input-box input[type="date"],
+.input-box input[type="time"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #2a2a2a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    box-sizing: border-box;
+    outline: none;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+/* Fazer o ícone do calendário ficar visível no fundo escuro */
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+.input-box input[type="date"]:focus,
+.input-box input[type="time"]:focus {
+    border-color: #d4af37;
+    background-color: #333;
+}
+
+/* Botão Confirmar */
+.btn-confirmar {
+    width: 100%;
+    padding: 15px;
+    background-color: #d4af37;
+    color: #121212;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
     margin-top: 10px;
 }
 
-button:hover {
-    background-color: #444;
-}
-
-input,
-select {
-    width: 90%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-/* Classes para esconder/mostrar telas */
-.hidden {
-    display: none;
+.btn-confirmar:hover {
+    background-color: #bfa030;
+    transform: translateY(-2px);
 }

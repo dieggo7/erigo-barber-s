@@ -1,18 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link  rel="stylesheet" href="./login.css">
-  <title>Erigo Barber's</title>
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erigo Barbers - Login</title>
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
-  <div>
-    <h1>Login</h1>
-    <input type = "text" placeholder="Nome"><br>
-    <input type = "password" placeholder="Senha"><br>
-    <button type="submit"><a href="agenda.html" target="_blank" rel="noopener noreferrer">Entrar</a> </button>
-  </div>
+    <div class="box-login">
+        <div class="logo">
+            <h1>ERIGO <span>BARBERS</span></h1>
+            <p>Tradição & Estilo</p>
+        </div>
+        
+        <h2>Acesse sua conta</h2>
+        
+        <form action="agenda.html">
+            <div class="input-box">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" placeholder="Digite seu e-mail" required>
+            </div>
+            
+            <div class="input-box">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" placeholder="Digite sua senha" required>
+            </div>
+            
+            <button type="submit" class="btn">Entrar</button>
+        </form>
+        
+        <p class="link-rodape">Ainda não é cliente? <a href="cadastro.html">Agende seu primeiro corte</a></p>
+    </div>
 </body>
 </html>

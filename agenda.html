@@ -1,86 +1,89 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Erigo-Barber's - Agendamento</title>
+    <title>Erigo Barbers - Agendamento</title>
     <link rel="stylesheet" href="agenda.css">
 </head>
-
 <body>
+    <div class="box-agenda">
+        <header class="header-agenda">
+            <div class="logo">
+                <h1>ERIGO <span>BARBERS</span></h1>
+            </div>
+            <a href="login.html" class="btn-voltar">Sair</a>
+        </header>
 
-    <header>
-        <h1>Agenda Barbearia</h1>
-    </header>
+        <div class="boas-vindas" id="texto-boas-vindas">
+            <h2>Novo Agendamento</h2>
+            <p>Escolha os detalhes para o seu próximo atendimento.</p>
+        </div>
 
-    <div id="tela-home" class="container">
-        <h2>Bem-vindo!</h2>
-        <p>O melhor corte da região está te esperando.</p>
-        <p>Clique abaixo para garantir seu horário.</p>
-        <button onclick="mostrarAgendamento()">Agendar Horário</button>
-    </div>
+        <form id="form-agenda" action="#">
+            
+            <div class="secao">
+                <h3>1. Escolha os Serviços</h3>
+                <div class="grid-servicos">
+                    <input type="checkbox" id="corte" name="servico" value="corte">
+                    <label for="corte" class="card-servico">
+                        <span class="nome">Corte Clássico</span>
+                        <span class="preco">R$ 45,00</span>
+                    </label>
 
-    <div id="tela-agendamento" class="container hidden">
-        <h2>Agendar Corte</h2>
-        <p>Escolha o melhor momento para você:</p>
+                    <input type="checkbox" id="barba" name="servico" value="barba">
+                    <label for="barba" class="card-servico">
+                        <span class="nome">Barba na Navalha</span>
+                        <span class="preco">R$ 35,00</span>
+                    </label>
 
-        <form onsubmit="finalizarAgendamento(event)">
-            <label for="data">Data:</label><br>
-            <input type="date" id="data" required>
+                    <input type="checkbox" id="combo" name="servico" value="combo">
+                    <label for="combo" class="card-servico">
+                        <span class="nome">Combo (Corte + Barba)</span>
+                        <span class="preco">R$ 70,00</span>
+                    </label>
+                </div>
+            </div>
 
-            <label for="hora">Horário:</label><br>
-            <input type="time" id="hora" required>
+            <div class="secao">
+                <h3>2. Escolha a Data e Horário</h3>
+                <div class="calendario-container">
+                    <div class="input-box">
+                        <label for="data-agenda">Dia do Corte</label>
+                        <input type="date" id="data-agenda" name="data-agenda" required>
+                    </div>
+                    
+                    <div class="input-box">
+                        <label for="hora-agenda">Horário</label>
+                        <input type="time" id="hora-agenda" name="hora-agenda" min="09:00" max="20:00" required>
+                    </div>
+                </div>
+            </div>
 
-            <label for="servico">Serviço:</label><br>
-            <select id="servico">
-                <option value="cabelo">Corte de Cabelo</option>
-                <option value="barba">Barba</option>
-                <option value="completo">Cabelo + Barba</option>
-            </select>
-
-            <button type="submit">Confirmar Agendamento</button>
+            <button type="submit" class="btn-confirmar">Confirmar Agendamento</button>
         </form>
 
-        <br>
-        <button onclick="voltarHome()" style="background-color: #888;">Voltar</button>
-    </div>
+        <div id="tela-sucesso" class="sucesso-container" style="display: none;">
+            <div class="icone-check">✔</div>
+            <h2>Tudo Certo!</h2>
+            <p>Seu horário na Erigo Barbers foi agendado com sucesso. Te esperamos na nossa cadeira!</p>
+            <button type="button" class="btn-novo" onclick="window.location.reload()">Fazer novo agendamento</button>
+        </div>
 
-    <div id="tela-sucesso" class="container hidden">
-        <h2 style="color: green;">Agendado com Sucesso!</h2>
-        <p>Seu horário está reservado.</p>
-        <p>Te esperamos para cortar o cabelo!</p>
-        <button onclick="voltarHome()">Voltar ao Início</button>
     </div>
 
     <script>
-
-        function mostrarAgendamento() {
-            document.getElementById('tela-home').classList.add('hidden');
-            document.getElementById('tela-agendamento').classList.remove('hidden');
-        }
-
-        function voltarHome() {
-            document.getElementById('tela-agendamento').classList.add('hidden');
-            document.getElementById('tela-sucesso').classList.add('hidden');
-            document.getElementById('tela-home').classList.remove('hidden');
-        }
-
-        function finalizarAgendamento(event) {
-            event.preventDefault();
-
-            const data = document.getElementById('data').value;
-            const hora = document.getElementById('hora').value;
-
-            if (data && hora) {
-                document.getElementById('tela-agendamento').classList.add('hidden');
-                document.getElementById('tela-sucesso').classList.remove('hidden');
-            } else {
-                alert("Por favor, preencha a data e a hora.");
-            }
-        }
+        document.getElementById('form-agenda').addEventListener('submit', function(event) {
+            // Previne que a página recarregue ao enviar o formulário
+            event.preventDefault(); 
+            
+            // Esconde o formulário e o texto de boas-vindas
+            document.getElementById('form-agenda').style.display = 'none';
+            document.getElementById('texto-boas-vindas').style.display = 'none';
+            
+            // Mostra a tela de sucesso
+            document.getElementById('tela-sucesso').style.display = 'flex';
+        });
     </script>
-
 </body>
-
 </html>

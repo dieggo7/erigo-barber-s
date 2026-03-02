@@ -1,61 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap');
 
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; 
-  }
-  
-  body > div {
-    background-color: white;
+    height: 100vh;
+    color: #fff;
+}
+
+.box-login {
+    background-color: #1e1e1e;
     padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    border-radius: 10px;
+    width: 350px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+    border-top: 4px solid #d4af37;
+}
+
+.logo {
     text-align: center;
-  }
-  
-  h1 {
-    font-style: italic;
-    color: #333333;
-    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.logo h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+.logo h1 span {
+    color: #d4af37;
+}
+
+.logo p {
+    font-size: 0.8rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 5px 0 0 0;
+}
+
+h2 {
+    font-size: 1.2rem;
+    text-align: center;
     margin-bottom: 20px;
-  }
-  
-  input[type="text"],
-  input[type="password"] {
+    font-weight: 400;
+}
+
+.input-box {
+    margin-bottom: 20px;
+}
+
+.input-box label {
+    display: block;
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 5px;
+}
+
+.input-box input {
     width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
+    padding: 10px;
+    background-color: #2a2a2a;
+    border: 1px solid #333;
+    border-radius: 5px;
+    color: #fff;
     box-sizing: border-box;
- 
-    font-size: 16px;
-  }
-  
-  input[type="text"]:focus,
-  input[type="password"]:focus {
-    border-color: #007bff;
     outline: none;
-  }
-  
-  button {
+    transition: 0.3s;
+}
+
+.input-box input:focus {
+    border-color: #d4af37;
+}
+
+.btn {
     width: 100%;
     padding: 12px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: rgb(255, 255, 255);
+    background-color: #d4af37;
+    color: #121212;
     border: none;
-    border-radius: 4px;
-    font-size: 16px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #bfa030;
+}
+
+.link-rodape {
+    text-align: center;
+    font-size: 0.85rem;
+    margin-top: 20px;
+    color: #888;
+}
+
+.link-rodape a {
+    color: #d4af37;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.link-rodape a:hover {
+    text-decoration: underline;
+}
