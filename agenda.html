@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Erigo Barbers - Agendamento</title>
     <link rel="stylesheet" href="agenda.css">
 </head>
+
 <body>
     <div class="box-agenda">
         <header class="header-agenda">
@@ -21,9 +23,32 @@
         </div>
 
         <form id="form-agenda" action="#">
-            
+
             <div class="secao">
-                <h3>1. Escolha os Serviços</h3>
+                <h3>1. Escolha o Profissional</h3>
+                <div class="grid-profissionais">
+                    
+                    <input type="radio" id="erick" name="profissional" value="erick" required>
+                    <label for="erick" class="card-profissional">
+                        <div class="foto-profissional">
+                            <img src="Captura de tela 2026-03-02 144704.png" alt="Foto do Barbeiro Erick" />
+                        </div>
+                        <span class="nome-pro">Diego</span>
+                    </label>
+
+                    <input type="radio" id="diego" name="profissional" value="diego" required>
+                    <label for="diego" class="card-profissional">
+                        <div class="foto-profissional">
+                            <img src="Captura de tela 2026-03-02 144711.png" alt="Foto do Barbeiro Diego" />
+                        </div>
+                        <span class="nome-pro">Erick</span>
+                    </label>
+                    
+                </div>
+            </div>
+
+            <div class="secao">
+                <h3>2. Escolha os Serviços</h3>
                 <div class="grid-servicos">
                     <input type="checkbox" id="corte" name="servico" value="corte">
                     <label for="corte" class="card-servico">
@@ -46,16 +71,16 @@
             </div>
 
             <div class="secao">
-                <h3>2. Escolha a Data e Horário</h3>
+                <h3>3. Data e Horário (Atendimento 24h)</h3>
                 <div class="calendario-container">
                     <div class="input-box">
                         <label for="data-agenda">Dia do Corte</label>
                         <input type="date" id="data-agenda" name="data-agenda" required>
                     </div>
-                    
+
                     <div class="input-box">
                         <label for="hora-agenda">Horário</label>
-                        <input type="time" id="hora-agenda" name="hora-agenda" min="09:00" max="20:00" required>
+                        <input type="time" id="hora-agenda" name="hora-agenda" required>
                     </div>
                 </div>
             </div>
@@ -73,17 +98,15 @@
     </div>
 
     <script>
-        document.getElementById('form-agenda').addEventListener('submit', function(event) {
-            // Previne que a página recarregue ao enviar o formulário
-            event.preventDefault(); 
-            
-            // Esconde o formulário e o texto de boas-vindas
+        document.getElementById('form-agenda').addEventListener('submit', function (event) {
+            event.preventDefault();
+
             document.getElementById('form-agenda').style.display = 'none';
             document.getElementById('texto-boas-vindas').style.display = 'none';
-            
-            // Mostra a tela de sucesso
+
             document.getElementById('tela-sucesso').style.display = 'flex';
         });
     </script>
 </body>
+
 </html>
